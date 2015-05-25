@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.8" jmeter="2.13 r1665067">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Users" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1432557387000</longProp>
+        <longProp name="ThreadGroup.end_time">1432557387000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+   &quot;productType&quot;:2,&#xd;
+   &quot;requestData&quot;:{&#xd;
+      &quot;searchType&quot;:&quot;100&quot;,&#xd;
+      &quot;extSysRefId&quot;:&quot;TT&quot;,&#xd;
+      &quot;extSysTimestamp&quot;:&quot;2014-07-29T05:15:34Z&quot;,&#xd;
+      &quot;multipartRequest&quot;:&quot;true&quot;,&#xd;
+      &quot;requireRateDetails&quot;:&quot;true&quot;,&#xd;
+     &quot;exactMatchOnly&quot;:&quot;true&quot;,&#xd;
+      &quot;source&quot;:{&#xd;
+         &quot;id&quot;:&quot;AA&quot;,&#xd;
+         &quot;type&quot;:&quot;&quot;,&#xd;
+         &quot;description&quot;:&quot;&quot;,&#xd;
+         &quot;channelInfo&quot;:[&#xd;
+            {&#xd;
+               &quot;type&quot;:&quot;2&quot;,&#xd;
+               &quot;id&quot;:&quot;AA&quot;,&#xd;
+               &quot;name&quot;:&quot;USW&quot;&#xd;
+            }&#xd;
+         ]&#xd;
+      },&#xd;
+      &quot;stay&quot;:{&#xd;
+         &quot;roomCount&quot;:&quot;1&quot;,&#xd;
+         &quot;start&quot;:&quot;${startDate}&quot;,&#xd;
+         &quot;end&quot;:&quot;${endDate}&quot;,&#xd;
+         &quot;guestInfo&quot;: ${guests}&#xd;
+      },&#xd;
+      &quot;search&quot;:{&#xd;
+         &quot;criteria&quot;:[&#xd;
+            {&#xd;
+               &quot;groupCode&quot;:&quot;XT&quot;,&#xd;
+               &quot;itemCode&quot;:&quot;65904&quot;,&#xd;
+               &quot;itemContext&quot;:&quot;Standard&quot;&#xd;
+            }&#xd;
+         ],&#xd;
+         &quot;priceRange&quot;:{&#xd;
+            &quot;min&quot;:&quot;${minPrice}&quot;,&#xd;
+            &quot;max&quot;:&quot;${maxPrice}&quot;&#xd;
+         }&#xd;
+      }&#xd;
+   }&#xd;
+}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">load-test.ttaws.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/rt/gds/search/single</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="set http headers" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accetps</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="create random data" enabled="true">
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="script">import java.util.Date;
+import java.util.Calendar;
+import java.util.Random;
+import java.text.SimpleDateFormat;
+
+public static final int START_DAY = 10; // Start from this many days from today
+public static final int  MAX_DAYS_TO_END = 10; // end date must be within this many days of the start date
+public static final int  MAX_NUMBER_OF_GUESTS = 10; // How many guests in guestInfo
+public static final int  MAX_AGE = 90; // Max value for ageQualifier
+public static final int  MAX_GUEST_COUNT = 20; // Max value for guestInfo.count
+public static final int  PRICE_MIN_LIMIT = 25; // Min Price must not be more than this
+public static final int  PRICE_MAX_LIMIT = 1000; // Max Price must not be more than this
+public static final String DATE_FORMAT = &quot;yyyy-MM-dd&quot;;
+
+public final Random random = new Random();
+
+public String create_start_date() {
+   Calendar calendar = Calendar.getInstance();            
+   calendar.add(Calendar.DAY_OF_MONTH, this.next_int_not_zero(START_DAY));
+   SimpleDateFormat fmt = new SimpleDateFormat(DATE_FORMAT);
+   return fmt.format(calendar.getTime());
+}
+
+public int create_min_price() {
+	return this.next_int_not_zero(PRICE_MIN_LIMIT); // this is greater than 0 and less than PRICE_MIN_LIMIT
+}
+
+public int create_max_price(int minPrice) {
+	while (true) {
+		int price = this.next_int_not_zero(PRICE_MAX_LIMIT);
+		if (price &gt; minPrice) {
+			return price;
+		}
+	}
+}
+
+public String create_end_date(String startDate) {
+	try {
+	       Calendar calendar = Calendar.getInstance();            
+	       SimpleDateFormat fmt = new SimpleDateFormat(DATE_FORMAT);
+	       Date start =  fmt.parse(startDate);
+	       calendar.setTime(start);
+	       int days = next_int_not_zero(MAX_DAYS_TO_END);
+	       calendar.add(Calendar.DAY_OF_MONTH, days);
+	       Date endDate = calendar.getTime();
+	       return fmt.format(endDate);
+	} catch (Exception e) {
+	       throw new RuntimeException(e);
+	}
+}
+
+public int next_int_not_zero(int max) {
+   while (true) {
+       int i = random.nextInt(max);
+       if (i &gt; 0) {
+           return i;
+       }
+   }        
+}
+
+public String create_one_guest() {
+   return &quot;{\&quot;ageQualifier\&quot;:\&quot;&quot; + next_int_not_zero(MAX_AGE) + &quot;\&quot;, \&quot;count\&quot;: \&quot;&quot; + next_int_not_zero(MAX_GUEST_COUNT) + &quot;\&quot;}&quot;;
+}
+
+public String create_guests() {
+   int number = next_int_not_zero(MAX_NUMBER_OF_GUESTS);
+   String guests = &quot;[&quot;;
+   for(int i=0; i &lt; number; i++) {
+       String guest = create_one_guest();
+       guests += guest + &quot;,&quot;;
+   }
+   guests = guests.substring(0, guests.length()-1); // remove last ,
+   guests += &quot;]&quot;;
+   return guests;
+}
+
+vars.put(&quot;startDate&quot;, create_start_date());
+vars.put(&quot;endDate&quot;, create_end_date(vars.get(&quot;startDate&quot;)));
+vars.put(&quot;guests&quot;, create_guests());
+min_price = create_min_price();
+vars.put(&quot;minPrice&quot;, &quot;&quot;+min_price);
+vars.put(&quot;maxPrice&quot;, &quot;&quot;+create_max_price(min_price));
+
+log.info(&quot;prices: &quot; + vars.get(&quot;minPrice&quot;) + &quot;, &quot; + vars.get(&quot;maxPrice&quot;));
+</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="test response is 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1477249802">200 OK</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="response has success" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="924215905">&quot;isSuccess&quot;:&quot;true&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data_as_document</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
